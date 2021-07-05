@@ -1,21 +1,48 @@
-import React from "react";
+import { useState } from "react";
 
-const CreatePost = () => {
+const CreatePost = (props) => {
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const id = Math.random();
+    const time = new Date();
+
+    console.log(id, title, body, time.toString());
+    props.createPost(id, title, body, time.toString());
+
+    setTitle("");
+    setBody("");
+  };
+
   return (
     <>
-      <div className="card create-post bg-secondary m-3 p-3">
-        <form>
+      <div className="card bg-secondary m-3 p-3">
+        <form onSubmit={submitHandler}>
           <div className="mb-3">
             <label htmlFor="title" className="form-label">
               Post title
             </label>
-            <input type="text" className="form-control" id="title" />
+            <input
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              type="text"
+              className="form-control"
+              id="title"
+            />
           </div>
           <div className="mb-3">
             <label htmlFor="body" className="form-label">
               Body
             </label>
-            <textarea className="form-control" id="body"></textarea>
+            <textarea
+              className="form-control"
+              id="body"
+              onChange={(e) => setBody(e.target.value)}
+              value={body}
+            ></textarea>
           </div>
 
           <button type="submit" className="btn btn-primary">
