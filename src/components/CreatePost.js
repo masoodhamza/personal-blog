@@ -20,7 +20,7 @@ const CreatePost = (props) => {
   return (
     <>
       <div className="card bg-secondary m-3 p-3">
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} className="needs-validation" novalidate>
           <div className="mb-3">
             <label htmlFor="title" className="form-label">
               Post title
@@ -31,7 +31,9 @@ const CreatePost = (props) => {
               type="text"
               className="form-control"
               id="title"
+              required
             />
+            <div class="valid-feedback">Looks good!</div>
           </div>
           <div className="mb-3">
             <label htmlFor="body" className="form-label">
@@ -42,6 +44,7 @@ const CreatePost = (props) => {
               id="body"
               onChange={(e) => setBody(e.target.value)}
               value={body}
+              required
             ></textarea>
           </div>
 

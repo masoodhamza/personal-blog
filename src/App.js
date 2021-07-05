@@ -26,13 +26,16 @@ const App = () => {
   };
 
   return (
-    <div className="container-fluid bg-dark App">
-      <div className="row">
-        <div className="col-md-4">
-          <CreatePost createPost={createPostHandler} />
-        </div>
-        <div className="col-md-8">
-          <Posts posts={post} />
+    <div className="App">
+      <div className="container">
+        <h1 className="text-light text-center py-3">My Blog</h1>
+        <div className="row bg-dark">
+          <div className="col-md-4">
+            <CreatePost createPost={createPostHandler} />
+          </div>
+          <div className="col-md-8">
+            <Posts posts={post} />
+          </div>
         </div>
       </div>
     </div>
