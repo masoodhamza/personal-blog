@@ -1,9 +1,14 @@
-import './App.css';
+import "./App.css";
+import Posts from "./components/Posts";
 
 function App() {
   return (
-    <div className="App">
-      
+    <div className="container-fluid bg-dark App">
+      <div className="row">
+        <div className="col-md-8 offset-2">
+          <Posts />
+        </div>
+      </div>
     </div>
   );
 }
