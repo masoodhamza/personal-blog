@@ -10,7 +10,6 @@ const CreatePost = (props) => {
     const id = Math.random();
     const time = new Date();
 
-    console.log(id, title, body, time.toString());
     props.createPost(id, title, body, time.toString());
 
     setTitle("");
@@ -20,7 +19,7 @@ const CreatePost = (props) => {
   return (
     <>
       <div className="card bg-secondary m-3 p-3">
-        <form onSubmit={submitHandler} className="needs-validation" novalidate>
+        <form onSubmit={submitHandler}>
           <div className="mb-3">
             <label htmlFor="title" className="form-label">
               Post title
@@ -33,8 +32,8 @@ const CreatePost = (props) => {
               id="title"
               required
             />
-            <div class="valid-feedback">Looks good!</div>
           </div>
+
           <div className="mb-3">
             <label htmlFor="body" className="form-label">
               Body
